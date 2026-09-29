@@ -1,0 +1,66 @@
+/* ============================================================
+   LAYOUT — الهيكل العام والشبكات
+   ============================================================ */
+.wrap {
+  max-width:1260px; margin:0 auto;
+  display:flex; flex-direction:column; gap:16px;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; flex-wrap:wrap; padding:4px 4px 6px;
+}
+.brand { display:flex; align-items:center; gap:12px; }
+.logo {
+  width:46px; height:46px; border-radius:15px; display:grid; place-items:center;
+  background:linear-gradient(140deg, var(--accent), var(--accent-2));
+  color:#fff; box-shadow:0 12px 26px -10px rgba(124,92,255,.85);
+  flex-shrink:0;
+}
+.brand h1 {
+  font-size:1.35rem; font-weight:900; line-height:1.15;
+  background:linear-gradient(90deg, var(--text), var(--accent-2));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.brand p { font-size:.76rem; color:var(--muted); font-weight:400; }
+.actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; flex-wrap:wrap; padding:12px 16px;
+}
+.tabs {
+  display:flex; gap:6px; background:var(--surface-3);
+  padding:5px; border-radius:14px; flex-wrap:wrap;
+}
+.range-label { font-size:.76rem; color:var(--muted); font-weight:500; }
+
+/* ---------- Stats Grid ---------- */
+.stats {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+  gap:14px;
+}
+
+/* ---------- Dashboard Grid ---------- */
+.dash {
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:16px;
+}
+.dash > .col-4  { grid-column:span 4; }
+.dash > .col-12 { grid-column:span 12; }
+
+@media (max-width:1080px) {
+  .dash > .col-4 { grid-column:span 12; }
+}
+
+@media (max-width:640px) {
+  body { padding:14px 10px 60px; }
+  .brand h1 { font-size:1.15rem; }
+  .brand p { display:none; }
+  .actions { width:100%; justify-content:flex-start; }
+}
