@@ -1,0 +1,63 @@
+/* ============================================================
+   BASE — المتغيرات، الثيم، Reset، الجسم
+   ============================================================ */
+:root {
+  --bg:#0b0d14;
+  --surface:rgba(255,255,255,.045);
+  --surface-2:rgba(255,255,255,.07);
+  --surface-3:rgba(255,255,255,.11);
+  --border:rgba(255,255,255,.09);
+  --text:#eef1f8;
+  --muted:#8b93a7;
+  --accent:#7c5cff;
+  --accent-2:#00e0b8;
+  --income:#22d38a;
+  --expense:#ff5c7c;
+  --warn:#ffc44d;
+  --radius:20px;
+  --radius-sm:12px;
+  --shadow:0 20px 45px -22px rgba(0,0,0,.85);
+}
+
+[data-theme="light"] {
+  --bg:#eef1f8;
+  --surface:rgba(255,255,255,.78);
+  --surface-2:rgba(255,255,255,.95);
+  --surface-3:rgba(15,23,42,.05);
+  --border:rgba(15,23,42,.09);
+  --text:#0f172a;
+  --muted:#64748b;
+  --shadow:0 20px 45px -28px rgba(15,23,42,.45);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Cairo', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:20px 14px 70px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s ease, color .35s ease;
+}
+
+body::before {
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(720px 520px at 10% -12%, rgba(124,92,255,.26), transparent 62%),
+    radial-gradient(720px 520px at 92% -4%, rgba(0,224,184,.18), transparent 62%),
+    radial-gradient(600px 600px at 50% 110%, rgba(124,92,255,.12), transparent 65%);
+  transition:background .35s ease;
+}
+
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(720px 520px at 10% -12%, rgba(124,92,255,.20), transparent 62%),
+    radial-gradient(720px 520px at 92% -4%, rgba(0,224,184,.20), transparent 62%),
+    radial-gradient(600px 600px at 50% 110%, rgba(124,92,255,.08), transparent 65%);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator { filter:invert(.6); cursor:pointer; }
+[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator { filter:none; }
